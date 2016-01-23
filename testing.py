@@ -1,13 +1,18 @@
 
 import os
 import pprint
+import sys
 from clarifai.client import ClarifaiApi
 
 clarifai_api = ClarifaiApi()
 
 def textToSpeech(text):
     print text
-    os.system("py -3 tts.py creds.json " + "\"" + text + "\"" + " output.pcm")
+    if sys.platform == "win32":
+        python = "py -3"
+    else:
+        python = "python3"
+    os.system("{} tts.py creds.json ".format(python) + "\"" + text + "\"" + " output.pcm")
 
 def get_tag_images(img_path):
     result = clarifai_api.tag_urls(img_path) if img_path.startswith("http") else clarifai_api.tag_images(open(os.path.join("img", img_path), "rb"))
