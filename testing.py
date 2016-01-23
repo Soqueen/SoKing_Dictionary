@@ -10,7 +10,7 @@ def textToSpeech(text):
     os.system("py -3 tts.py creds.json " + "\"" + text + "\"" + " output.pcm")
 
 def get_tag_images(img_path):
-    result = clarifai_api.tag_urls(img_path) if img_path.startswith("http") else clarifai_api.tag_images(open(img_path, "rb"))
+    result = clarifai_api.tag_urls(img_path) if img_path.startswith("http") else clarifai_api.tag_images(open(os.path.join("img", img_path), "rb"))
     return result
 
 def get_tags(result):
@@ -29,4 +29,4 @@ pprint.pprint(d)
 # Find tag with highest percentage of probability
 r = max(d.iterkeys(), key=(lambda k: d[k]))
 
-# textToSpeech(r)
+textToSpeech(r)
