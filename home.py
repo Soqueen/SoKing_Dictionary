@@ -31,7 +31,7 @@ def upload_file():
 @app.route('/uploads/<filename>')
 def uploaded_file(filename):
     # return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
-    result = get_tag_images("http://www.characters.ca/wp-content/uploads/2015/05/steak.jpg")
+    result = get_tag_images(filename)
     tags = get_tags(result)
     probs = get_probs(result)
 

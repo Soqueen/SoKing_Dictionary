@@ -18,7 +18,7 @@ def textToSpeech(text):
     os.system("{} tools/tts.py tools/creds.json ".format(python) + "\"" + text + "\"" + " output.pcm")
 
 def get_tag_images(img_path):
-    result = clarifai_api.tag_urls(img_path) if img_path.startswith("http") else clarifai_api.tag_images(open(os.path.join("img", img_path), "rb"))
+    result = clarifai_api.tag_urls(img_path) if img_path.startswith("http") else clarifai_api.tag_images(open(os.path.join("uploads", img_path), "rb"))
     return result
 
 def get_tags(result):
