@@ -34,7 +34,6 @@ def send_file(filename):
 
 @app.route('/show/<filename>')
 def uploaded_file(filename):
-    # return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
     result = get_tag_images(filename)
     tags = get_tags(result)
     probs = get_probs(result)
@@ -42,9 +41,10 @@ def uploaded_file(filename):
     d = dict(zip(tags, probs))
     pprint.pprint(d)
     r = max(d.iterkeys(), key=(lambda k: d[k]))
-    textToSpeech(r)
+    # textToSpeech(r)
     return render_template("success.html", filename=filename, text=r)
 
 if __name__ == '__main__':
+    app.jinja_env.globals.update(textToSpeech=textToSpeech)
     app.debug = True
     app.run()
