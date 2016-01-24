@@ -1,3 +1,5 @@
 # SoKing_Dictionary
 
-# For ConUHacks's ITS project, please go to branch "flask"
+# ConUHacks' project ITS
+
+The main branch is located here [link](https://github.com/Soqueen/SoKing_Dictionary/tree/flask) 
