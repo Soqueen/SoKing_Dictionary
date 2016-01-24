@@ -5,5 +5,5 @@ tools/creds.json
 *.pcm.wav
 
 # Upload Files
-uploads/
+uploads/*
 
