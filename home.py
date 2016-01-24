@@ -4,7 +4,7 @@ import os
 import pprint
 from flask import Flask, request, redirect, url_for, render_template, send_from_directory
 from werkzeug import secure_filename
-from tools.tags import get_tag_images, get_tags, get_probs, textToSpeech
+from tools.tags import foods, get_tag_images, get_tags, get_probs, textToSpeech
 
 UPLOAD_FOLDER = 'uploads'
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
@@ -40,9 +40,19 @@ def uploaded_file(filename):
 
     d = dict(zip(tags, probs))
     pprint.pprint(d)
-    r = max(d.iterkeys(), key=(lambda k: d[k]))
+    r1 = max(d.iterkeys(), key=(lambda k: d[k]))
+    r2 = ""
+    for tag in tags:
+        if tag in foods:
+            r2 = tag
+            text = r2
+            # textToSpeech(r2)
+    if r1 != r2:
+        if r2 not in foods:
+            # textToSpeech(r1)
+            text = r1
     # textToSpeech(r)
-    return render_template("success.html", filename=filename, text=r)
+    return render_template("success.html", filename=filename, text=text)
 
 if __name__ == '__main__':
     app.jinja_env.globals.update(textToSpeech=textToSpeech)
