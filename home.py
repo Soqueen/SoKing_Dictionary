@@ -4,7 +4,7 @@ import os
 import pprint
 from flask import Flask, request, redirect, url_for, render_template, send_from_directory
 from werkzeug import secure_filename
-from tools.testing import get_tag_images, get_tags, get_probs, textToSpeech
+from tools.tags import get_tag_images, get_tags, get_probs, textToSpeech
 
 UPLOAD_FOLDER = 'uploads'
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
@@ -39,7 +39,7 @@ def uploaded_file(filename):
     pprint.pprint(d)
     r = max(d.iterkeys(), key=(lambda k: d[k]))
     textToSpeech(r)
-    return render_template("success.html")
+    return render_template("success.html", filename=filename, text=r)
 
 if __name__ == '__main__':
     app.debug = True

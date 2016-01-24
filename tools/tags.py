@@ -26,18 +26,3 @@ def get_tags(result):
 
 def get_probs(result):
     return result.get("results")[0].get("result").get("tag").get("probs")
-
-# result = get_tag_images("http://www.characters.ca/wp-content/uploads/2015/05/steak.jpg")
-# tags = get_tags(result)
-# probs = get_probs(result)
-
-# d = dict(zip(tags, probs))
-# pprint.pprint(d)
-
-# Find tag with highest percentage of probability
-# r = max(d.iterkeys(), key=(lambda k: d[k]))
-# textToSpeech(r)
-
-# for tag in tags:
-#     if tag in foods:
-#         textToSpeech(tag)
