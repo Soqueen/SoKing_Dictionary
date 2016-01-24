@@ -3,7 +3,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title> Home </title>
+        <title> Upload </title>
 
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
@@ -44,13 +44,13 @@
             <div class="header clearfix">
                 <nav>
                     <ul class="nav nav-pills pull-right" style="margin-top: 20px">
-                        <li role="presentation" class="active"><a href="#">Home</a></li>
+                        <li role="presentation" class="active"><a href="#">Upload</a></li>
                         <li role="presentation"><a href="#">About</a></li>
                         <li role="presentation"><a href="#">Contact</a></li>
                     </ul>
                 </nav>
                 <a class="navbar-brand" href="#">
-                    <img src="./img/ge-logo.jpg" class="img-responsive" style="width:35%">
+                    <img src="{{ url_for('static',filename='img/its.png') }}" class="img-responsive" style="width:30%">
                 </a>
             </div>
 

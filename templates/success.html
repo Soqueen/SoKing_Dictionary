@@ -3,11 +3,42 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title> Home </title>
+        <title> Success! </title>
+
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     </head>
+    <style>
+        .centered{
+            text-align: center;
+        }
+    </style>
     <body>
-        <h1>Success</h1>
-        <h2> {{ filename }}</h2>
-        <h3> {{ text }} </h3>
+        <div class="container">
+            <div class="header clearfix">
+                <nav>
+                    <ul class="nav nav-pills pull-right" style="margin-top: 20px">
+                        <li role="presentation" class="active"><a href="#">Upload</a></li>
+                        <li role="presentation"><a href="#">About</a></li>
+                        <li role="presentation"><a href="#">Contact</a></li>
+                    </ul>
+                </nav>
+                <a class="navbar-brand" href="#">
+                    <img src="{{ url_for('static',filename='img/its.png') }}" class="img-responsive" style="width:30%">
+                </a>
+            </div>
+            <row>
+                <div class="col-md-offset-3 col-md-6" style="margin-top: 100px">
+                    <h3> Successfully uploaded {{ filename }} !</h3>
+                    <img src="{{ url_for('send_file', filename=filename) }}" class="img-responsive" style="width:80%">
+                    <h3> Result: {{ text }} </h3>
+                </div>
+            </row>
+        </div>
     </body>
 </html>

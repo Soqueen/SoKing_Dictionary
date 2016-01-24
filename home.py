@@ -29,6 +29,10 @@ def upload_file():
     return render_template("home.html")
 
 @app.route('/uploads/<filename>')
+def send_file(filename):
+    return send_from_directory(app.config['UPLOAD_FOLDER'], filename=filename)
+
+@app.route('/show/<filename>')
 def uploaded_file(filename):
     # return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
     result = get_tag_images(filename)
