@@ -42,15 +42,16 @@ def uploaded_file(filename):
     pprint.pprint(d)
     r1 = max(d.iterkeys(), key=(lambda k: d[k]))
     r2 = ""
+    text = ""
     for tag in tags:
         if tag in foods:
             r2 = tag
-            text = r2
+            text += r2 + ", "
             # textToSpeech(r2)
     if r1 != r2:
         if r2 not in foods:
             # textToSpeech(r1)
-            text = r1
+            text += r1 
     # textToSpeech(r)
     return render_template("success.html", filename=filename, text=text)
 
