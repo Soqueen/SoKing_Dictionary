@@ -1,6 +1,9 @@
 # Nuance API Credentials
-creds.json
+tools/creds.json
 
 *.pcm
 *.pcm.wav
+
+# Upload Files
+uploads/
 
