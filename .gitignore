@@ -7,3 +7,5 @@ tools/creds.json
 # Upload Files
 uploads/*
 
+.DS_Store
+
